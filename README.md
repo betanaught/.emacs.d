@@ -15,7 +15,7 @@ clone my setup.
 Package Archive: MELPA
 Packages Loaded: elpy, jedi, ido
 Modes Eneabled:
-'''
+```
 (global-display-line-numbers-mode)
 (ido-mode)
-'''
+```
