@@ -2,6 +2,7 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+;; ADD MELPA --------------------------------------------------------------
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
@@ -30,6 +31,11 @@ There are two things you can do about this warning:
 
 (global-display-line-numbers-mode)
 
+(setq backup-directory-alist `(("." . "~/.emacs.d/emacs.saves")))
+(setq backup-by-copying t)
+;(setq backup-by-copying-when-linked t)
+
+ ;; SET EMACS COLOR THEME: ------------------------------------------------
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

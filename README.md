@@ -1,4 +1,4 @@
-# Emacs Configuration File: init.el
+Emacs Configuration File: init.el
 
 by Brendan Wakefield (2019)
 
@@ -21,3 +21,12 @@ Modes Eneabled:
 (global-display-line-numbers-mode)
 (ido-mode)
 ```
+#### Emacs Backup Files
+
+I also have changed the location of where my backup files go:
+```
+(setq backup-directory-alist `(("." . "~/.emacs.d/emacs.saves")))
+(setq backup-by-copying t)
+```
+changes the location of all my backup files to a directory within my
+.emacs.d folder.
