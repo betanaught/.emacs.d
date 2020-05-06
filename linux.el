@@ -25,7 +25,7 @@ There are two things you can do about this warning:
 (require 'ido)
 (ido-mode t)
 (elpy-enable)
-(setq python-shell-interpreter "/usr/bin/python3")
+(setq python-shell-interpreter "/usr/bin/python")
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
 
