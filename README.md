@@ -1,6 +1,6 @@
 Emacs Configuration File: init.el
 
-by Brendan Wakefield (2020)
+by Brendan Wakefield (2021)
 
 ### Useful Information
 
