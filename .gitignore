@@ -1,5 +1,6 @@
-elpa
-auto-save-list
+elpa/
+auto-save-list/
+
 snippets
 emacs.saves
 ido.last
