@@ -35,5 +35,6 @@ There are two things you can do about this warning:
 (setq backup-by-copying t)
 ;(setq backup-by-copying-when-linked t)
 
- ;; SET EMACS COLOR THEME: ------------------------------------------------
- ;; None right now for linux, since I have emacs aliased to emacs -nw
+(custom-set-variables
+ '(package-selected-packages '(markdown-mode elpy)))
+(custom-set-faces)
