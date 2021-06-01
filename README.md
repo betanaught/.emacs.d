@@ -1,4 +1,4 @@
-Emacs Configuration File: init.el
+Emacs Configuration Files: init.el -> windows.el || linux.el || darwin.el
 
 by Brendan Wakefield (2021)
 
