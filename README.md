@@ -39,6 +39,6 @@ I use different initialization files depending on which operating system I am us
 (load-file (expand-file-name
 	    (cond ((eq system-type 'windows-nt) "windows.el")
 	    	  ((eq system-type 'gnu/linux) "linux.el")
-			  ((eq system-type 'darwin) "darwin.el))
+		  ((eq system-type 'darwin) "darwin.el))
 	     user-emacs-directory))
 ```
