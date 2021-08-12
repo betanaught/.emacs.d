@@ -1,6 +1,12 @@
 elpa/
+elpy/
+emacs.saves/
+eshell/
+snippets/
+url/
 auto-save-list/
 
-snippets
-emacs.saves
 ido.last
+
+# Windohz
+ac-comphist.dat
