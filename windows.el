@@ -1,3 +1,4 @@
+
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -21,12 +22,13 @@ There are two things you can do about this warning:
     ;; For important compatibility libraries like cl-lib
     (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 (package-initialize)
-
-(require 'ido)
-(ido-mode t)
 (elpy-enable)
+(require 'ido)
+(require 'popup)
+
+(ido-mode t)
 ;Following line is not needed if python.exe is in your PATH variable:
-;(setq python-shell-interpreter "~/AppData/Local/Programs/Python/Python38/python.exe")
+					;(setq python-shell-interpreter "~/AppData/Local/Programs/Python/Python38/python.exe")
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
 
