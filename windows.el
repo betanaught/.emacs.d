@@ -38,7 +38,8 @@ There are two things you can do about this warning:
 (setq backup-by-copying t)
 ;(setq backup-by-copying-when-linked t)
 
- ;; SET EMACS COLOR THEME: ------------------------------------------------
+;-------------------------------------------------------------------------------
+;; SET EMACS THEME AND FONT:
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -51,8 +52,5 @@ There are two things you can do about this warning:
  '(custom-enabled-themes (quote (deeper-blue)))
  '(package-selected-packages (quote (c-eldoc jedi elpy python))))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Cascadia Mono" :foundry "outline" :slant normal :weight normal :height 98 :width normal)))))
  )
