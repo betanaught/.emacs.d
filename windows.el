@@ -52,5 +52,5 @@ There are two things you can do about this warning:
  '(custom-enabled-themes (quote (deeper-blue)))
  '(package-selected-packages (quote (c-eldoc jedi elpy python))))
 (custom-set-faces
- '(default ((t (:family "Cascadia Mono" :foundry "outline" :slant normal :weight normal :height 98 :width normal)))))
+ '(default ((t (:family "Cascadia Mono" :foundry "outline" :slant normal :weight normal :height 98 :width normal))))
  )
