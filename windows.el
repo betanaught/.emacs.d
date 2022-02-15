@@ -1,3 +1,4 @@
+
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -21,12 +22,13 @@ There are two things you can do about this warning:
     ;; For important compatibility libraries like cl-lib
     (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 (package-initialize)
-
-(require 'ido)
-(ido-mode t)
 (elpy-enable)
+(require 'ido)
+(require 'popup)
+
+(ido-mode t)
 ;Following line is not needed if python.exe is in your PATH variable:
-;(setq python-shell-interpreter "~/AppData/Local/Programs/Python/Python38/python.exe")
+					;(setq python-shell-interpreter "~/AppData/Local/Programs/Python/Python38/python.exe")
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
 
@@ -36,7 +38,8 @@ There are two things you can do about this warning:
 (setq backup-by-copying t)
 ;(setq backup-by-copying-when-linked t)
 
- ;; SET EMACS COLOR THEME: ------------------------------------------------
+;-------------------------------------------------------------------------------
+;; SET EMACS THEME AND FONT:
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -49,8 +52,5 @@ There are two things you can do about this warning:
  '(custom-enabled-themes (quote (deeper-blue)))
  '(package-selected-packages (quote (c-eldoc jedi elpy python))))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Cascadia Mono" :foundry "outline" :slant normal :weight normal :height 98 :width normal))))
  )
