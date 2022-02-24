@@ -22,18 +22,19 @@ There are two things you can do about this warning:
     ;; For important compatibility libraries like cl-lib
     (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 (package-initialize)
-(elpy-enable)
+; (elpy-enable)
 (require 'ido)
 (require 'popup)
 
 (ido-mode t)
 ;Following line is not needed if python.exe is in your PATH variable:
-					;(setq python-shell-interpreter "~/AppData/Local/Programs/Python/Python38/python.exe")
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
+;(setq python-shell-interpreter "python")
+; (add-hook 'python-mode-hook 'jedi:setup)
+; (setq jedi:complete-on-dot t)
 
 (global-display-line-numbers-mode)
 
+; (setenv "WORKON_HOME" "C:/Users/bwakefield/.conda/envs")
 (setq backup-directory-alist `(("." . "~/.emacs.d/emacs.saves")))
 (setq backup-by-copying t)
 ;(setq backup-by-copying-when-linked t)
