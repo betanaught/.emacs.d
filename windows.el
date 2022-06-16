@@ -35,3 +35,5 @@
 
 ;; LOAD DRACULA THEME ----------------------------------------------------------
 (load-theme 'dracula t)
+(server-start)
+
