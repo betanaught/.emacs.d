@@ -16,8 +16,13 @@
 (setq backup-by-copying t)
 
 ;; -----------------------------------------------------------------------------
-;; SET THEME AND FONT
+;; SET WINDOW / THEME / FONT
 ;; -----------------------------------------------------------------------------
+;; WINDOW
+(set-frame-width (selected-frame) 85)
+(set-frame-height (selected-frame) 60)
+
+;; THEME / FONT
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -33,7 +38,6 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Source Code Pro" :foundry "outline" :slant normal :weight normal :height 98 :width normal)))))
 
-;; LOAD DRACULA THEME ----------------------------------------------------------
 (load-theme 'dracula t)
 (server-start)
 
