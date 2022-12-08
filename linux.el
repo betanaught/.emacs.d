@@ -33,7 +33,12 @@ There are two things you can do about this warning:
 
 (setq backup-directory-alist `(("." . "~/.emacs.d/emacs.saves")))
 (setq backup-by-copying t)
-;(setq backup-by-copying-when-linked t)
+;;(setq backup-by-copying-when-linked t)
+;; sh-mode
+;; sh-mode
+(setq sh-basic-offset 2)
+(setq sh-indentation 2)
+(setq smie-indent-basic 2)
 
 (custom-set-variables
  '(package-selected-packages '(markdown-mode elpy)))
