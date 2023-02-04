@@ -22,24 +22,31 @@ There are two things you can do about this warning:
     (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 (package-initialize)
 
+;; -----------------------------------------------------------------------------
+;; SET MODES
+;; -----------------------------------------------------------------------------
 (require 'ido)
 (ido-mode t)
+(global-display-line-numbers-mode)
+(delete-selection-mode 1)
+;; backups -----------------------------
+(setq backup-directory-alist `(("." . "~/.emacs.d/emacs.saves")))
+(setq backup-by-copying t)
+;; (setq backup-by-copying-when-linked t)
+;; shell -------------------------------
+(setq sh-basic-offset 2)
+(setq sh-indentation 2)
+(setq smie-indent-basic 2)
+
+;; -----------------------------------------------------------------------------
+;; SET PYTHON MODE
+;; -----------------------------------------------------------------------------
 (elpy-enable)
 (setq python-shell-interpreter "/usr/bin/python")
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
 
-(global-display-line-numbers-mode)
-
-(setq backup-directory-alist `(("." . "~/.emacs.d/emacs.saves")))
-(setq backup-by-copying t)
-;;(setq backup-by-copying-when-linked t)
-;; sh-mode
-;; sh-mode
-(setq sh-basic-offset 2)
-(setq sh-indentation 2)
-(setq smie-indent-basic 2)
-
 (custom-set-variables
  '(package-selected-packages '(markdown-mode elpy)))
+ '(package-selected-packages (quote (dracula-theme markdown-mode elpy))))
 (custom-set-faces)

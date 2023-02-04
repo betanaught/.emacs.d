@@ -11,10 +11,12 @@
 (require 'ido)
 (ido-mode t)
 (global-display-line-numbers-mode)
-
+(delete-selection-mode 1)
+;; backups -----------------------------
 (setq backup-directory-alist `(("." . "~/.emacs.d/emacs.saves")))
 (setq backup-by-copying t)
-;; sh-mode
+;; (setq backup-by-copying-when-linked t)
+;; shell -------------------------------
 (setq sh-basic-offset 2)
 (setq sh-indentation 2)
 (setq smie-indent-basic 2)
