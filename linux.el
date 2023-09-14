@@ -4,26 +4,39 @@
 ;; You may delete these explanatory comments.
 ;; ADD MELPA --------------------------------------------------------------
 (require 'package)
-(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-                    (not (gnutls-available-p))))
-       (proto (if no-ssl "http" "https")))
-  (when no-ssl
-    (warn "\
-Your version of Emacs does not support SSL connections,
-which is unsafe because it allows man-in-the-middle attacks.
-There are two things you can do about this warning:
-1. Install an Emacs version that does support SSL and be safe.
-2. Remove this warning from your init file so you won't see it again."))
-  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
-  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
-  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
-  (when (< emacs-major-version 24)
-    ;; For important compatibility libraries like cl-lib
-    (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
+;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
+;; and `package-pinned-packages`. Most users will not need or want to do this.
+(add-to-list 'package-archives
+	     '("melpa-stable"
+	       . "https://stable.melpa.org/packages/"))
 (package-initialize)
 
 ;; -----------------------------------------------------------------------------
-;; SET MODES
+;; PACKAGES
+;; -----------------------------------------------------------------------------
+
+(custom-set-variables
+ '(custom-safe-themes
+   '("05626f77b0c8c197c7e4a31d9783c4ec6e351d9624aa28bc15e7f6d6a6ebd926" default))
+ '(package-selected-packages
+   '(lsp-jedi ;
+     lsp-julia ;
+     lsp-mode ;
+     company-ansible ;
+     company-fuzzy ;
+     company-jedi ;
+     company-math ;
+     company-shell ;
+     company-statistics ;
+     company-terraform ;
+     markdown-mode ;
+     yaml-mode ;
+     dracula-theme ;
+     elpy)))
+
+;; -----------------------------------------------------------------------------
+;; MODES
 ;; -----------------------------------------------------------------------------
 (require 'ido)
 (ido-mode t)
@@ -37,16 +50,32 @@ There are two things you can do about this warning:
 (setq sh-basic-offset 2)
 (setq sh-indentation 2)
 (setq smie-indent-basic 2)
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.2")
+;; https://github.com/melpa/melpa/issues/7238
 
 ;; -----------------------------------------------------------------------------
-;; SET PYTHON MODE
+;; PYTHON MODE
 ;; -----------------------------------------------------------------------------
 (elpy-enable)
 (setq python-shell-interpreter "/usr/bin/python")
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
 
-(custom-set-variables
- '(package-selected-packages '(markdown-mode elpy)))
- '(package-selected-packages (quote (dracula-theme markdown-mode elpy))))
-(custom-set-faces)
+;; -----------------------------------------------------------------------------
+;; YAML MODE
+;; -----------------------------------------------------------------------------
+
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
+(add-hook 'yaml-mode-hook
+ '(lambda ()
+    (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+;; -----------------------------------------------------------------------------
+;; CUSTOM MODES and THEME
+;; -----------------------------------------------------------------------------
+
+(load-theme 'dracula t)
+
+(load "~/.emacs.d/cfn-mode.el")
+
