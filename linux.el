@@ -17,24 +17,43 @@
 ;; -----------------------------------------------------------------------------
 
 (custom-set-variables
- '(custom-safe-themes
-   '("05626f77b0c8c197c7e4a31d9783c4ec6e351d9624aa28bc15e7f6d6a6ebd926" default))
- '(package-selected-packages
-   '(lsp-jedi ;
-     lsp-julia ;
-     lsp-mode ;
-     company-ansible ;
-     company-fuzzy ;
-     company-jedi ;
-     company-math ;
-     company-shell ;
-     company-statistics ;
-     company-terraform ;
-     markdown-mode ;
-     yaml-mode ;
-     dracula-theme ;
-     elpy)))
+  '(custom-safe-themes
+    '("05626f77b0c8c197c7e4a31d9783c4ec6e351d9624aa28bc15e7f6d6a6ebd926" default))
+  '(package-selected-packages
+    '(flycheck;
+      flycheck-checkbashisms;
+      flycheck-color-mode-line;
+      flycheck-julia;
+      flymake-markdownlint;
+      flycheck-cfn;
+      treemacs-all-the-icons;
+      treemacs-icons-dired;
+      all-the-icons;
+      treemacs-tab-bar;
+      treemacs-persp;
+      treemacs-magit;
+      treemacs;
+      dockerfile-mode;
+      lsp-jedi ;
+      lsp-julia ;
+      lsp-mode ;
+      company-ansible ;
+      company-fuzzy ;
+      company-jedi ;
+      company-math ;
+      company-shell ;
+      company-statistics ;
+      company-terraform ;
+      markdown-mode ;
+      yaml-mode ;
+      dracula-theme ;
+      elpy)))
 
+(custom-set-faces
+;;
+)
+
+(require 'use-package)
 ;; -----------------------------------------------------------------------------
 ;; MODES
 ;; -----------------------------------------------------------------------------
@@ -70,7 +89,17 @@
 (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
 (add-hook 'yaml-mode-hook
  '(lambda ()
-    (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+   (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
+;; -----------------------------------------------------------------------------
+;; FLYCHECK
+;; -----------------------------------------------------------------------------
+
+(require 'flycheck)
+; https://www.flycheck.org/en/latest/user/quickstart.html
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(require 'flycheck-cfn)
+
 ;; -----------------------------------------------------------------------------
 ;; CUSTOM MODES and THEME
 ;; -----------------------------------------------------------------------------
@@ -78,4 +107,11 @@
 (load-theme 'dracula t)
 
 (load "~/.emacs.d/cfn-mode.el")
+; https://github.com/emacsmirror/cfn-mode
+; https://github.com/stelligent/cfn_nag
+(load "~/.emacs.d/treemacs.el")
+; https://github.com/Alexander-Miller/treemacs#configuration
 
+; ESS
+
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/elpa-src/ess-18.10.2")
