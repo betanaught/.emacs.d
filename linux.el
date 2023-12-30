@@ -68,7 +68,8 @@
 ;; -----------------------------------------------------------------------------
 ;; MODES
 ;; -----------------------------------------------------------------------------
-(require 'ido)
+(use-package ido
+  :ensure t)
 (ido-mode t)
 (global-display-line-numbers-mode)
 (delete-selection-mode 1)
@@ -86,6 +87,8 @@
 ;; -----------------------------------------------------------------------------
 ;; PYTHON MODE
 ;; -----------------------------------------------------------------------------
+(use-package elpy
+  :ensure t)
 (elpy-enable)
 (setq python-shell-interpreter "/usr/bin/python")
 (add-hook 'python-mode-hook 'jedi:setup)
