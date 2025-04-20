@@ -1,16 +1,18 @@
 ;; Initialization file for Emcas running on macOS (e-lisp)
 
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
+;; and `package-pinned-packages`. Most users will not need or want to do this.
+;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
 (require 'ido)
 (ido-mode t)
-(elpy-enable)
-(setq python-shell-interpreter "/usr/local/bin/python3")
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
+;; (elpy-enable)
+;; (setq python-shell-interpreter "/usr/local/bin/python3")
+;; (add-hook 'python-mode-hook 'jedi:setup)
+;; (setq jedi:complete-on-dot t)
 
 (global-display-line-numbers-mode t)
 (global-visual-line-mode t)
@@ -18,7 +20,6 @@
 (setq backup-directory-alist `(("." . "~/.emacs.d/emacs.saves")))
 (setq backup-by-copying t)
 ;;(setq backup-by-copying-when-linked t)
-;; sh-mode
 ;; sh-mode
 (setq sh-basic-offset 2)
 (setq sh-indentation 2)
@@ -29,12 +30,17 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(markdown-mode elpy)))
- '(package-selected-packages '(ess markdown-mode elpy))
+ '(custom-safe-themes
+   '("603a831e0f2e466480cdc633ba37a0b1ae3c3e9a4e90183833bc4def3421a961"
+     default))
+ '(package-selected-packages '(elpy markdown-mode yaml-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(add-to-list 'custom-theme-load-path "/opt/homebrew/share/emacs/site-lisp/emacs-dracula")
+(load-theme 'dracula)
 
