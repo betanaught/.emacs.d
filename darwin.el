@@ -37,9 +37,10 @@
    '("603a831e0f2e466480cdc633ba37a0b1ae3c3e9a4e90183833bc4def3421a961"
      default))
  '(package-selected-packages
-   '(elpy markdown-mode treemacs treemacs-icons-dired treemacs-magit
-	  treemacs-persp treemacs-projectile treemacs-tab-bar
-	  yaml-mode)))
+   '(cfn-mode
+     elpy markdown-mode treemacs treemacs-icons-dired
+     treemacs-magit treemacs-persp treemacs-projectile treemacs-tab-bar
+     yaml-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -47,6 +48,30 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; -----------------------------------------------------------------------------
+;; YAML MODE
+;; -----------------------------------------------------------------------------
+
+;; https://github.com/yoshiki/yaml-mode/tree/master
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
+(add-hook 'yaml-mode-hook
+ '(lambda ()
+   (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
+;; -----------------------------------------------------------------------------
+;; CUSTOM MODES and THEME
+;; -----------------------------------------------------------------------------
+
 (add-to-list 'custom-theme-load-path "/opt/homebrew/share/emacs/site-lisp/emacs-dracula")
 (load-theme 'dracula)
 
+;(load "~/.emacs.d/cfn-mode.el")
+; https://github.com/emacsmirror/cfn-mode
+; https://github.com/stelligent/cfn_nag
+(load "~/.emacs.d/treemacs.el")
+; https://github.com/Alexander-Miller/treemacs#configuration
+
+; ESS
+; (add-to-list 'load-path "/usr/share/emacs/site-lisp/elpa-src/ess-18.10.2")
