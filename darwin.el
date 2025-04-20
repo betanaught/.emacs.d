@@ -14,16 +14,19 @@
 ;; (add-hook 'python-mode-hook 'jedi:setup)
 ;; (setq jedi:complete-on-dot t)
 
-(global-display-line-numbers-mode t)
-(global-visual-line-mode t)
+;; WHEN READY FOR JEDI:
+;; https://github.com/pyenv/pyenv-virtualenv?tab=readme-ov-file#activate-virtualenv
+
+;; (global-display-line-numbers-mode t)
+;; (global-visual-line-mode t)
 
 (setq backup-directory-alist `(("." . "~/.emacs.d/emacs.saves")))
 (setq backup-by-copying t)
 ;;(setq backup-by-copying-when-linked t)
 ;; sh-mode
-(setq sh-basic-offset 2)
-(setq sh-indentation 2)
-(setq smie-indent-basic 2)
+;; (setq sh-basic-offset 2)
+;; (setq sh-indentation 2)
+;; (setq smie-indent-basic 2)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -33,7 +36,10 @@
  '(custom-safe-themes
    '("603a831e0f2e466480cdc633ba37a0b1ae3c3e9a4e90183833bc4def3421a961"
      default))
- '(package-selected-packages '(elpy markdown-mode yaml-mode)))
+ '(package-selected-packages
+   '(elpy markdown-mode treemacs treemacs-icons-dired treemacs-magit
+	  treemacs-persp treemacs-projectile treemacs-tab-bar
+	  yaml-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
