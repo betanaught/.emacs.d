@@ -38,7 +38,7 @@
      default))
  '(package-selected-packages
    '(cfn-mode
-     elpy markdown-mode treemacs treemacs-icons-dired
+     elpy ess markdown-mode treemacs treemacs-icons-dired
      treemacs-magit treemacs-persp treemacs-projectile treemacs-tab-bar
      yaml-mode)))
 (custom-set-faces
