@@ -67,11 +67,14 @@
 (add-to-list 'custom-theme-load-path "/opt/homebrew/share/emacs/site-lisp/emacs-dracula")
 (load-theme 'dracula)
 
-;(load "~/.emacs.d/cfn-mode.el")
+; (load "~/.emacs.d/cfn-mode.el")
 ; https://github.com/emacsmirror/cfn-mode
 ; https://github.com/stelligent/cfn_nag
 (load "~/.emacs.d/treemacs.el")
 ; https://github.com/Alexander-Miller/treemacs#configuration
 
+;; -----------------------------------------------------------------------------
 ; ESS
-; (add-to-list 'load-path "/usr/share/emacs/site-lisp/elpa-src/ess-18.10.2")
+(load "ess-autoloads")
+
+
