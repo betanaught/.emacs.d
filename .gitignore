@@ -13,3 +13,4 @@ ac-comphist.dat
 server/
 .cache
 .cache/*
+eln-cache/
