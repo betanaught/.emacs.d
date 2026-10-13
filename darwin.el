@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;; Initialization file for Emcas running on macOS (e-lisp)
 
 (require 'package)
@@ -78,4 +79,13 @@
 ; ESS
 (load "ess-autoloads")
 
-
+;; -----------------------------------------------------------------------------
+; julia-mode
+(require 'treesit)
+(use-package julia-ts-mode
+  :ensure t
+  :mode "\\.jl$"
+  :config
+  ;; Define where Emacs can find the tree-sitter grammar source
+  (add-to-list 'treesit-language-source-alist
+               '(julia "https://github.com/tree-sitter/tree-sitter-julia" "v0.25.0")))
