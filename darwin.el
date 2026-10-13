@@ -88,4 +88,4 @@
   :config
   ;; Define where Emacs can find the tree-sitter grammar source
   (add-to-list 'treesit-language-source-alist
-               '(julia "https://github.com/tree-sitter/tree-sitter-julia" "v0.25.0")))
+               '(julia "https://github.com/tree-sitter/tree-sitter-julia"
