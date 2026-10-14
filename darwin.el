@@ -72,6 +72,15 @@
 ; (load "~/.emacs.d/cfn-mode.el")
 ; https://github.com/emacsmirror/cfn-mode
 ; https://github.com/stelligent/cfn_nag
+;; Install and configure nerd-icons if you haven't already
+(use-package nerd-icons
+  :ensure t)
+
+(use-package treemacs-nerd-icons
+  :ensure t
+  :after (treemacs nerd-icons)
+  :config
+  (treemacs-load-theme "nerd-icons"))
 (load "~/.emacs.d/treemacs.el")
 ; https://github.com/Alexander-Miller/treemacs#configuration
 
@@ -80,7 +89,13 @@
 (load "ess-autoloads")
 
 ;; -----------------------------------------------------------------------------
-; julia-mode
+; JULIA
+;;(setq julia-repl-executable-path "/Users/bren/.juliaup/bin/julia")
+;; (add-to-list 'load-path "/Users/bren/.juliaup/bin/")
+(setq julia-repl-executable-records
+      '((default  "/Users/bren/.juliaup/bin/julia")))
+(require 'julia-repl)
+(add-hook 'julia-mode-hook 'julia-repl-mode) ;; always use minor mode
 (require 'treesit)
 (use-package julia-ts-mode
   :ensure t
@@ -88,4 +103,10 @@
   :config
   ;; Define where Emacs can find the tree-sitter grammar source
   (add-to-list 'treesit-language-source-alist
-               '(julia "https://github.com/tree-sitter/tree-sitter-julia"
+               '(julia "https://github.com/tree-sitter/tree-sitter-julia")))
+
+; julia-repl
+(with-eval-after-load 'julia-repl
+      (keymap-set julia-repl-mode-map "C-<return>" #'julia-repl-send-region-or-line))
+
+
