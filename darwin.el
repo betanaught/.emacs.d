@@ -73,14 +73,14 @@
 ; https://github.com/emacsmirror/cfn-mode
 ; https://github.com/stelligent/cfn_nag
 ;; Install and configure nerd-icons if you haven't already
-(use-package nerd-icons
-  :ensure t)
+;; (use-package nerd-icons
+;;   :ensure t)
 
-(use-package treemacs-nerd-icons
-  :ensure t
-  :after (treemacs nerd-icons)
-  :config
-  (treemacs-load-theme "nerd-icons"))
+;; (use-package treemacs-nerd-icons
+;;   :ensure t
+;;   :after (treemacs nerd-icons)
+;;   :config
+;;   (treemacs-load-theme "nerd-icons"))
 (load "~/.emacs.d/treemacs.el")
 ; https://github.com/Alexander-Miller/treemacs#configuration
 
